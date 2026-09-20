@@ -1,0 +1,188 @@
+/* ─── ENTER UNIVERSE SECTION — HOUSE OF GIOVANNI CORSI ───
+   Minimalist Editorial Luxury Styling
+   Zero Glow · Zero Rainbow Gradients
+*/
+
+.enter-universe-section {
+  background-color: #000;
+  /* Full height section */
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* Remove padding to let columns bleed to edges */
+  border-bottom: none;
+}
+
+/* Header overlaying the whole section */
+.universe-header-wrap {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 1.5rem 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
+  pointer-events: none; /* Let clicks pass through */
+}
+
+.universe-headline {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.universe-subtitle {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--accent-gold-light);
+  max-width: 680px;
+  margin-bottom: 0;
+}
+
+/* 4 Split Backgrounds Grid */
+.universe-quadrant {
+  display: flex;
+  flex: 1; /* Take remaining height */
+  width: 100%;
+  min-height: 100vh;
+  /* Top-to-bottom fade to eliminate sharp cuts below hero section */
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 100%);
+}
+
+.quadrant-card {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Text at bottom */
+  padding: 3rem 2rem;
+  text-align: left;
+  border-right: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle separator */
+  transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.quadrant-card:last-child {
+  border-right: none;
+}
+
+/* New: Background image separated for half-planet fade effect */
+.quadrant-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: left center; /* Align to the left to show half planet */
+  background-repeat: no-repeat;
+  /* Fades out horizontally to the right */
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+  z-index: 0;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
+  filter: grayscale(20%);
+}
+
+.quadrant-card:hover .quadrant-bg {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+/* Dark overlay on each column to ensure text readability */
+.quadrant-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.quadrant-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.quadrant-card:hover {
+  flex: 1.3; /* Expand slightly on hover */
+}
+
+.quadrant-card:hover .quadrant-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
+}
+
+.quadrant-card:hover .quadrant-content {
+  transform: translateY(0);
+}
+
+.quadrant-pillar {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+}
+
+.quadrant-name {
+  font-size: clamp(1.5rem, 2vw, 2.25rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.9);
+  margin-bottom: 0.5rem;
+}
+
+.quadrant-category {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.quadrant-quote {
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .universe-quadrant {
+    flex-direction: column;
+    /* Adjust top fade for vertical stack if needed */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 100%);
+  }
+  
+  .universe-header-wrap {
+    position: relative;
+    padding-bottom: 2rem;
+    background: transparent;
+  }
+  
+  .quadrant-card {
+    min-height: 35vh;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .quadrant-bg {
+    /* For vertical layout, you may want left-to-right fade, or a bottom fade */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+    background-position: center top;
+  }
+}

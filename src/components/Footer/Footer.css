@@ -1,0 +1,230 @@
+/* ─── FOOTER — HOUSE OF GIOVANNI CORSI ───
+   Minimalist Editorial Luxury Styling
+   Zero Glow · Hairline Borders · Matte Black Canvas
+*/
+
+.footer-root {
+  background: transparent !important;
+  border-top: none; /* Removed sharp cut between contact and footer */
+  padding: 2.5rem 1.5rem 3rem; /* Reduced top padding since they flow together */
+  position: relative;
+  z-index: 2;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* Brand */
+.footer-brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border: 1px solid var(--border-subtle);
+  background: #000000;
+  padding: 3px;
+}
+
+.footer-logo-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-house {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+.footer-logo-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: #ffffff;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.footer-motto {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  max-width: 380px;
+}
+
+.footer-hq {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.footer-worlds-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 2rem;
+  margin-top: -1rem;
+}
+
+.footer-block-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--accent-gold);
+}
+
+.footer-worlds-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  overflow-x: auto; /* In case screen is too small */
+  padding-bottom: 0.5rem; /* For scrollbar breathing room */
+}
+
+.footer-world-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  width: fit-content;
+  transition: all var(--transition-fast);
+}
+
+.footer-world-chip:hover {
+  border-color: var(--accent-gold);
+  color: var(--text-primary);
+  background: var(--bg-surface-elevated);
+}
+
+.chip-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+}
+
+.chip-icon {
+  color: var(--text-muted);
+}
+
+/* Action Block */
+.footer-action-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.footer-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.footer-email-link:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.footer-apex-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  color: var(--text-primary);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  padding: 0.65rem 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.footer-apex-btn:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #000000;
+}
+
+/* Bottom Row */
+.footer-bottom-row {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+
+.footer-bottom-meta {
+  color: var(--text-dim);
+}
+
+@media (max-width: 960px) {
+  .footer-top-row {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

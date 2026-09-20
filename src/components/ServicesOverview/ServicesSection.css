@@ -1,0 +1,134 @@
+/* ─── SERVICES OVERVIEW — HOUSE OF GIOVANNI CORSI ───
+   Compact 1-Row Matrix
+*/
+
+.services-overview-section {
+  background-color: #000;
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.services-overview-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #000;
+  z-index: 0;
+}
+
+@keyframes subtleBreathe {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+.services-header-compact {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.services-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.services-compact-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.service-col-compact {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-top {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+.col-category {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.col-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.col-service-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.srv-bullet {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+}
+
+.col-action-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  color: var(--accent-gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  padding: 0;
+  border-bottom: 1px solid transparent;
+  align-self: flex-start;
+  transition: opacity var(--transition-fast);
+}
+
+.col-action-btn:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .services-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-compact-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-header-compact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

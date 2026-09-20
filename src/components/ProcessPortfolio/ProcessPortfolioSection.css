@@ -1,0 +1,201 @@
+/* ─── PROCESS & PORTFOLIO ───
+   Minimalist Editorial Luxury Styling
+*/
+
+.unified-portfolio-section {
+  background-color: #000;
+  padding: 6.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.unified-portfolio-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/images/carina_nebula.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.08; /* Dimmer for text */
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+  animation: subtleBreathe 30s ease-in-out infinite alternate;
+}
+
+.portfolio-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4.5rem;
+}
+
+.portfolio-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.portfolio-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--accent-gold-light);
+  line-height: 1.5;
+}
+
+/* Process Row */
+.process-horizontal-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.process-step-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-num {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.step-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.portfolio-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin-bottom: 4rem;
+}
+
+/* Portfolio Filters */
+.portfolio-filter-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 4rem;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  padding: 0.45rem 1.15rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--text-primary);
+  color: var(--bg-primary);
+  background: var(--text-primary);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2.5rem;
+}
+
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+}
+
+.portfolio-tag { color: var(--text-muted); }
+
+.portfolio-project-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.portfolio-project-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  margin-bottom: 2rem;
+}
+
+.portfolio-card-bottom {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+}
+
+.portfolio-client { color: var(--text-muted); }
+
+.portfolio-inquire-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  letter-spacing: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.portfolio-inquire-btn:hover { opacity: 0.7; }
+
+@media (max-width: 1024px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-horizontal-row { flex-wrap: wrap; }
+  .process-step-item { flex: 1 1 30%; }
+}
+
+@media (max-width: 640px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .process-horizontal-row { flex-direction: column; }
+}

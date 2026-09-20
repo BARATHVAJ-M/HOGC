@@ -1,0 +1,284 @@
+/* ─── HOGC DESIGN SYSTEM — HOUSE OF GIOVANNI CORSI ───
+   Authentic Luxury Editorial Typography & Minimalist Dark Theme
+   Source of Truth: https://www.hogc.in/
+*/
+
+:root {
+  /* Color Palette — Pure Luxury Monochrome & Champagne Gold */
+  --bg-primary: #000000;
+  --bg-secondary: #070707;
+  --bg-surface: #0d0d0d;
+  --bg-surface-elevated: #141414;
+  --bg-surface-hover: #181818;
+
+  /* Refined Borders (Crisp Hairline, Zero Glow) */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-active: rgba(255, 255, 255, 0.3);
+  --border-gold: rgba(197, 160, 89, 0.4);
+  --border-gold-subtle: rgba(197, 160, 89, 0.2);
+
+  /* Typography Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #666666;
+  --text-dim: #444444;
+
+  /* Official HOGC Gold Accents */
+  --accent-gold: #c5a059;
+  --accent-gold-light: #e0c896;
+  --accent-gold-dim: rgba(197, 160, 89, 0.15);
+  
+  /* Company Subtle Identity Tints (Matte, No Neon) */
+  --accent-hogc: #c5a059;
+  --accent-gctech: #4da8b8;
+  --accent-sapiensync: #d4a754;
+  --accent-gcmarketing: #c96b5d;
+  --accent-autotown: #d97736;
+
+  /* Typography Hierarchy */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-telemetry: 'Montserrat', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --section-padding: 7rem 2rem;
+  --container-max-width: 1200px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Subtle Smooth Transitions */
+  --transition-fast: 160ms ease;
+  --transition-normal: 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.75rem);
+  line-height: 1.1;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  line-height: 1.15;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+p {
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+
+.font-telemetry, .label-tracking {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Common Section Layout */
+.section {
+  position: relative;
+  min-height: auto;
+  padding: 6rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4.5rem 1rem;
+  }
+}
+
+/* Section Header Badge */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--accent-gold);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.section-badge-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+}
+
+/* Unified Card Component — Matte Luxury, Zero Glow, Borderless */
+.card {
+  background: transparent;
+  border: none;
+  padding: 2.25rem 0;
+  transition: transform var(--transition-normal);
+  position: relative;
+}
+
+.card:hover {
+  background: transparent;
+  transform: translateY(-5px);
+}
+
+/* Buttons — Editorial & Understated */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: #000000;
+  border-color: var(--text-primary);
+}
+
+.btn-primary:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #000000;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.btn-gold {
+  background: var(--accent-gold);
+  color: #000000;
+  border-color: var(--accent-gold);
+}
+
+.btn-gold:hover {
+  background: var(--accent-gold-light);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+}
+
+/* Utilities */
+.text-gold {
+  color: var(--accent-gold);
+}
+
+.border-gold {
+  border-color: var(--border-gold);
+}
+
+.italic {
+  font-style: italic;
+}

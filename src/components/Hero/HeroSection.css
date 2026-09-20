@@ -1,0 +1,245 @@
+/* ─── HERO SECTION — HOUSE OF GIOVANNI CORSI ───
+   Minimalist Editorial Luxury Theme
+   Zero Glow · Zero Rainbow Gradients · Pure Obsidian & Gold
+*/
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8.5rem 1.5rem 5rem;
+  background-color: #000;
+  text-align: center;
+  border-bottom: none; /* Removed sharp cut */
+  overflow: hidden; /* Important for scaling animation */
+}
+
+.hero-bg-anim {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/images/galaxy landing page.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  animation: bgBreathe 15s ease-in-out infinite alternate, bgFadeIn 2s ease-in forwards;
+  opacity: 0; /* starts hidden, fades in */
+  /* Fade out bottom to blend seamlessly into next section */
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+}
+
+@keyframes bgFadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes bgBreathe {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.2); }
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Overlay to ensure text readability against the space background */
+  z-index: 1;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 860px;
+  position: relative;
+  z-index: 2;
+  animation: contentFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1s; /* wait for loader to finish */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes contentFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Official Logo Emblem Image */
+.hero-emblem-wrap {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-emblem-img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border: 1px solid var(--border-subtle);
+  padding: 8px;
+  background: #000000;
+  transition: border-color var(--transition-normal);
+}
+
+.hero-emblem-img:hover {
+  border-color: var(--accent-gold);
+}
+
+/* Label */
+.hero-label {
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  font-weight: 400;
+}
+
+/* Main Title in Cormorant Garamond */
+.hero-title {
+  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+}
+
+/* Sharp Quote */
+.hero-quote {
+  font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent-gold-light);
+  line-height: 1.35;
+  margin-bottom: 1.75rem;
+  max-width: 720px;
+}
+
+/* Sharp Editorial Statement */
+.hero-statement {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin-bottom: 3rem;
+  letter-spacing: 0.03em;
+}
+
+/* Telemetry Row */
+.hero-telemetry-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.25rem;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.hero-telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  transition: color var(--transition-fast);
+}
+
+.hero-telemetry-item:hover {
+  color: var(--text-primary);
+}
+
+.telemetry-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+}
+
+/* Scroll Trigger Animation (Minimalist Luxury Hairline) */
+.hero-scroll-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  cursor: pointer;
+  padding: 1rem;
+  transition: opacity var(--transition-fast);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+}
+
+.hero-scroll-trigger:hover {
+  color: var(--accent-gold);
+}
+
+.scroll-track {
+  width: 1px;
+  height: 52px;
+  background-color: var(--border-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-indicator-pip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 18px;
+  background-color: var(--accent-gold);
+  animation: scrollTrackSlide 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollTrackSlide {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(290%);
+    opacity: 0;
+  }
+}
+
+.scroll-trigger-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 7rem 1rem 4rem;
+  }
+
+  .hero-telemetry-row {
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+
+  .hero-emblem-img {
+    width: 80px;
+    height: 80px;
+  }
+}

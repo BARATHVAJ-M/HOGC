@@ -1,0 +1,123 @@
+/* ─── HOW WE WORK SECTION — HOUSE OF GIOVANNI CORSI ───
+   Minimalist Editorial Luxury Styling
+   Zero Glow · No Box Cuts · Seamless Flow
+*/
+
+.how-we-work-section {
+  background-color: var(--bg-primary);
+  padding: 6.5rem 1.5rem 3rem 1.5rem; /* Reduced bottom padding to flow into OurWork */
+}
+
+.process-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4.5rem;
+}
+
+.process-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.process-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--accent-gold-light);
+  line-height: 1.5;
+}
+
+/* 5 Steps Flow - No Borders */
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.process-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.process-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Clean separator */
+  padding-bottom: 0.75rem;
+}
+
+.step-num {
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.step-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.step-title {
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+}
+
+.step-desc {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* Synergy Text - No Box */
+.synergy-statement-box {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.synergy-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+.synergy-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+
+.synergy-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .process-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
