@@ -20,7 +20,7 @@ export default function HeroSection({ onExplore }) {
         {/* Official Brand Emblem / Logo Image */}
         <div className="hero-emblem-wrap">
           <img
-            src="/hogc-logo.jpg"
+            src="./hogc-logo.jpg"
             alt="House of Giovanni Corsi - Official Logo"
             className="hero-emblem-img"
           />

@@ -27,7 +27,7 @@ export default function Footer({ onNavigate }) {
           <div className="footer-brand-block">
             <div className="footer-logo">
               <img
-                src="/hogc-logo.jpg"
+                src="./hogc-logo.jpg"
                 alt="House of Giovanni Corsi"
                 className="footer-logo-img"
               />

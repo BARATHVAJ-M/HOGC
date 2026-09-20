@@ -42,7 +42,7 @@ export default function Navbar({ onNavigate }) {
           aria-label="House of Giovanni Corsi - Return to Top"
         >
           <img
-            src="/hogc-logo.jpg"
+            src="./hogc-logo.jpg"
             alt="HOGC - House of Giovanni Corsi"
             className="navbar-logo-img"
           />

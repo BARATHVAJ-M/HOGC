@@ -23,7 +23,7 @@ export default function ProgressiveLoader({ onFinished }) {
     <div className={`progressive-loader ${loaded ? 'fade-out' : ''}`}>
       <div className="loader-content">
         <img
-          src="/hogc-logo.jpg"
+          src="./hogc-logo.jpg"
           alt="House of Giovanni Corsi"
           className="loader-logo-img"
         />
