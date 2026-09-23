@@ -5,10 +5,9 @@ const CHAPTERS = [
   { id: 'hero', number: '01', label: 'Overview' },
   { id: 'universe', number: '02', label: 'Ecosystem' },
   { id: 'companies', number: '03', label: 'Dossier' },
-  { id: 'services', number: '04', label: 'Capabilities' },
-  { id: 'about', number: '05', label: 'House Story' },
-  { id: 'work', number: '06', label: 'Process & Portfolio' },
-  { id: 'contact', number: '07', label: 'Inquire' },
+  { id: 'about', number: '04', label: 'House Story' },
+  { id: 'work', number: '05', label: 'Process & Portfolio' },
+  { id: 'contact', number: '06', label: 'Inquire' },
 ];
 
 export default function ScrollProgress({ activeSection, onNavigate }) {

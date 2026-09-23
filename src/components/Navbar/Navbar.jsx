@@ -17,7 +17,6 @@ export default function Navbar({ onNavigate }) {
   const navItems = [
     { label: 'Ecosystem', id: 'universe' },
     { label: 'Dossier', id: 'companies' },
-    { label: 'Capabilities', id: 'services' },
     { label: 'House Story', id: 'about' },
     { label: 'Process & Portfolio', id: 'work' },
   ];

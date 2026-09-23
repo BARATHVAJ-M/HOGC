@@ -89,8 +89,19 @@
   mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
   z-index: 0;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
+  transition: filter 1.2s ease;
   filter: grayscale(20%);
+  animation: slowDrift 30s ease-in-out infinite alternate, atmosphericPulse 8s ease-in-out infinite;
+}
+
+@keyframes slowDrift {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.06) translate(2%, -1%); }
+}
+
+@keyframes atmosphericPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
 }
 
 .quadrant-card:hover .quadrant-bg {

@@ -4,7 +4,6 @@ import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import HeroSection from './components/Hero/HeroSection';
 import EnterUniverseSection from './components/EnterUniverse/EnterUniverseSection';
 import PlanetDeepDive from './components/PlanetDeepDive/PlanetDeepDive';
-import ServicesSection from './components/ServicesOverview/ServicesSection';
 import AboutSection from './components/About/AboutSection';
 import ProcessPortfolioSection from './components/ProcessPortfolio/ProcessPortfolioSection';
 import ContactSection from './components/Contact/ContactSection';
@@ -26,7 +25,7 @@ export default function App() {
       const progress = docHeight > 0 ? Math.min(Math.max(scrollY / docHeight, 0), 1) : 0;
       setScrollProgress(progress);
 
-      const sectionIds = ['hero', 'universe', 'companies', 'services', 'about', 'work', 'contact'];
+      const sectionIds = ['hero', 'universe', 'companies', 'about', 'work', 'contact'];
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i]);
         if (el) {
@@ -89,25 +88,22 @@ export default function App() {
         {/* Section 01: Hero with Official Emblem & Minimalist Scroll Trigger */}
         <HeroSection onExplore={() => handleNavigate('universe')} />
 
-        {/* Section 02: Enter the HOGC Universe */}
+        {/* Section 02: Enter the HOGC Universe — 4 Breathing Planet Columns */}
         <EnterUniverseSection />
 
-        {/* Section 03: Sequential Enterprise Dossier & Deliverables */}
+        {/* Section 03: Enterprise Dossier — Full-Bleed Planet Cards with Chip Deliverables */}
         <PlanetDeepDive onSelectCompany={handleSelectPlanet} />
 
-        {/* Section 04: Dedicated Capabilities Matrix */}
-        <ServicesSection onSelectCompany={handleSelectPlanet} />
-
-        {/* Section 05: About HOGC & The Founding House */}
+        {/* Section 04: About HOGC & The Founding House */}
         <AboutSection />
 
-        {/* Unified Section 06: Process & Portfolio */}
+        {/* Section 05: Process & Portfolio */}
         <ProcessPortfolioSection />
       </main>
 
       {/* Unified Background Wrapper for Contact and Footer */}
       <div className="contact-footer-wrapper">
-        {/* Section 07: Direct Engagement & Inquiry */}
+        {/* Section 06: Direct Engagement & Inquiry */}
         <ContactSection preselectedInterest={contactPreselected} />
 
       {/* Reusable Company Detail Modal */}
