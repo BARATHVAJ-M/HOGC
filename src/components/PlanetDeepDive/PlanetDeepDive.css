@@ -61,9 +61,9 @@
   position: relative;
 }
 
-/* Left Media Column (1 part) */
+/* Left Media Column (rebalanced for uncropped, majestic floating planet view) */
 .deepdive-media-col {
-  width: 33.33%; /* 1:3 ratio roughly, but we can use 30-40% */
+  width: 32%;
   position: relative;
   flex-shrink: 0;
 }
@@ -71,40 +71,62 @@
 .deepdive-image-frame {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 150%; /* Extends into the right column */
+  left: 2rem; /* Pushed in so the left sphere edge is never sliced against the border */
+  width: 135%; /* Seamlessly overlaps into the right column gradient */
   height: 100%;
   border: none;
   background: transparent;
   overflow: hidden;
-  /* Fade out image to the right so there are no sharp cuts */
-  mask-image: linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  /* Dual fade: soft fade on left edge so zero cut, and soft fade on right edge */
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
 }
 
+/* Ultra-smooth, fine, non-aggressive photo animation */
 .deepdive-space-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: filter 1.2s ease;
-  filter: grayscale(40%);
-  animation: subtleFloat 25s ease-in-out infinite alternate;
+  object-position: center 45%;
+  transition: filter 1.6s ease;
+  filter: grayscale(15%) brightness(1.02);
+  animation: planetFineDrift 36s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate,
+             planetAtmosphereBreath 14s ease-in-out infinite alternate;
+  will-change: transform, filter;
 }
 
-@keyframes subtleFloat {
-  0% { transform: scale(1) translateY(0); }
-  50% { transform: scale(1.03) translateY(-1%); }
-  100% { transform: scale(1.05) translateY(0.5%); }
+@keyframes planetFineDrift {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.035) translate3d(1.5%, -0.8%, 0);
+  }
+  100% {
+    transform: scale(1.018) translate3d(-0.8%, 0.8%, 0);
+  }
+}
+
+@keyframes planetAtmosphereBreath {
+  0% {
+    filter: grayscale(15%) brightness(1.02) contrast(1.02);
+  }
+  50% {
+    filter: grayscale(5%) brightness(1.08) contrast(1.06);
+  }
+  100% {
+    filter: grayscale(10%) brightness(1.04) contrast(1.03);
+  }
 }
 
 .deepdive-card:hover .deepdive-space-img {
-  filter: grayscale(0%);
+  filter: grayscale(0%) brightness(1.12) contrast(1.08);
 }
 
 .deepdive-media-badge {
   position: absolute;
   top: 2rem;
-  left: 2rem;
+  left: 3rem;
   background: transparent;
   border: none;
   font-size: 0.75rem;
@@ -114,15 +136,15 @@
   z-index: 2;
 }
 
-/* Right Content Column (3 parts) */
+/* Right Content Column (expanded to 68% for spacious editorial text delivery) */
 .deepdive-content-col {
-  width: 66.66%;
-  padding: 4rem 4rem 4rem 10%; /* Push text past the fade */
+  width: 68%;
+  padding: 4rem 3.5rem 4rem 4rem; /* Generous text delivery area */
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1200px;
+  max-width: 1350px;
 }
 
 .deepdive-top-meta {
@@ -133,13 +155,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.2em;
   color: var(--accent-gold);
 }
 
 .deepdive-world-name {
-  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
@@ -147,25 +170,26 @@
 }
 
 .deepdive-sharp-quote {
-  font-size: 1.5rem;
-  line-height: 1.4;
+  font-size: 1.55rem;
+  line-height: 1.45;
   margin-bottom: 1.5rem;
   font-weight: 300;
-  color: var(--text-primary);
+  color: var(--accent-gold-light);
+  max-width: 920px; /* Expanded text area */
 }
 
 .deepdive-sharp-statement,
 .deepdive-description {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  max-width: 680px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cbd5e1; /* Clear, bright, highly readable text */
+  margin-bottom: 2.2rem;
+  max-width: 920px; /* Expanded text area */
 }
 
 /* Deliverables — Horizontal Chip Layout */
 .deepdive-deliverables {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.2rem;
 }
 
 .deliverables-heading {
@@ -173,7 +197,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   color: var(--accent-gold);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .deliverables-chips {
@@ -184,19 +208,220 @@
 
 .deliverable-chip {
   font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--text-secondary);
+  color: #e2e8f0;
   padding: 0.55rem 1.15rem;
-  border: 1px solid rgba(197, 160, 89, 0.25);
-  background: rgba(197, 160, 89, 0.04);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  background: rgba(197, 160, 89, 0.06);
   transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
 .deliverable-chip:hover {
   border-color: var(--accent-gold);
-  color: var(--text-primary);
-  background: rgba(197, 160, 89, 0.1);
+  color: #ffffff;
+  background: rgba(197, 160, 89, 0.15);
+}
+
+/* ─── Interactive Commercial Services Matrix & Mini-Box Popover ─── */
+.deepdive-services-section {
+  margin-bottom: 2.5rem;
+  max-width: 960px;
+}
+
+.services-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-gold);
+  margin-bottom: 1.15rem;
+  text-transform: uppercase;
+}
+
+.heading-pip {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+}
+
+.services-interactive-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  position: relative;
+}
+
+.service-interactive-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #f8fafc;
+  outline: none;
+}
+
+.chip-indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chip-title {
+  color: inherit;
+}
+
+.chip-arrow {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.service-interactive-chip:hover,
+.service-interactive-chip.active {
+  background: rgba(197, 160, 89, 0.12);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(197, 160, 89, 0.2);
+}
+
+.service-interactive-chip:hover .chip-indicator-dot,
+.service-interactive-chip.active .chip-indicator-dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 8px #ffd700;
+}
+
+.service-interactive-chip:hover .chip-arrow,
+.service-interactive-chip.active .chip-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* Floating Mini-Box Popover Card */
+.service-popover-card {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 0;
+  z-index: 100;
+  min-width: 360px;
+  max-width: 440px;
+  background: rgba(10, 12, 18, 0.96);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(197, 160, 89, 0.15);
+  padding: 1.5rem 1.6rem;
+  pointer-events: none;
+  animation: popoverFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  text-align: left;
+}
+
+/* Little triangle pointer at the bottom of the popover */
+.service-popover-card::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 28px;
+  border-width: 7px 7px 0 7px;
+  border-style: solid;
+  border-color: rgba(10, 12, 18, 0.96) transparent transparent transparent;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popover-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.popover-entity {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.popover-impact-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #000;
+  background: var(--accent-gold);
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.popover-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.popover-tagline {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--accent-gold-light);
+  margin-bottom: 0.75rem;
+}
+
+.popover-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 1.15rem;
+}
+
+.popover-deliverable-wrap {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid var(--accent-gold);
+  padding: 0.65rem 0.85rem;
+}
+
+.popover-del-label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-gold);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.popover-del-text {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #e2e8f0;
+  margin: 0;
 }
 
 /* Actions Row */

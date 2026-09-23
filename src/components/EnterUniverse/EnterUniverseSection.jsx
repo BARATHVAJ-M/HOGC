@@ -9,14 +9,14 @@ export default function EnterUniverseSection() {
       <div className="universe-header-wrap">
         <div className="section-badge font-telemetry">
           <span className="section-badge-dot" />
-          <span>THE ECOSYSTEM MATRIX</span>
+          <span>ENTERPRISE CAPABILITIES · INTEGRATED SYNERGY</span>
         </div>
         <h2 className="universe-headline font-serif">
           Four Specialized Disciplines. <br />
-          <span className="text-gold italic">One Sovereign Collective.</span>
+          <span className="text-gold italic">One Accountable Standard.</span>
         </h2>
         <p className="universe-subtitle font-serif">
-          “Each entity operates with sovereign autonomy while compounding under unified standards.”
+          “Eliminating vendor fragmentation by delivering integrated technology, executive talent, brand growth, and smart mobility under unified commercial governance.”
         </p>
       </div>
 

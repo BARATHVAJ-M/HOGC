@@ -1,36 +1,37 @@
 import React, { useState } from 'react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { WORK_PROJECTS } from '../../data/ecosystemData';
 import './ProcessPortfolioSection.css';
 
 const STEPS = [
   {
     step: "01",
-    title: "DISCOVER",
-    desc: "Diagnostic of enterprise requirements and strategic horizons."
+    title: "DIAGNOSE",
+    desc: "Diagnostic of enterprise requirements, existing technical debt, and commercial growth targets."
   },
   {
     step: "02",
     title: "ARCHITECT",
-    desc: "Formulating synchronized cross-company solutions."
+    desc: "Formulating synchronized cross-company solutions spanning technology, talent, and brand."
   },
   {
     step: "03",
     title: "ENGINEER",
-    desc: "Rapid deployment of resilient software and teams."
+    desc: "Rapid deployment of resilient cloud software, specialized talent pods, and go-to-market systems."
   },
   {
     step: "04",
-    title: "EXECUTE",
-    desc: "Orchestrated market rollouts backed by telemetry."
+    title: "DEPLOY",
+    desc: "Orchestrated market rollouts backed by automated telemetry, SLAs, and continuous quality governance."
   },
   {
     step: "05",
-    title: "SCALE",
-    desc: "Long-term enterprise value compounding."
+    title: "COMPOUND",
+    desc: "Long-term enterprise value compounding through ecosystem integration and shared infrastructure."
   }
 ];
 
-const FILTER_TAGS = ['ALL', 'TECHNOLOGY', 'TALENT', 'MARKETING', 'MOBILITY'];
+const FILTER_TAGS = ['ALL', 'TECHNOLOGY', 'TALENT', 'BRAND', 'MOBILITY'];
 
 export default function ProcessPortfolioSection() {
   const [activeFilter, setActiveFilter] = useState('ALL');
@@ -46,11 +47,11 @@ export default function ProcessPortfolioSection() {
         <div className="portfolio-header">
           <div className="section-badge font-telemetry">
             <span className="section-badge-dot" />
-            <span>OPERATIONAL METHODOLOGY & DEPLOYMENTS</span>
+            <span>OPERATIONAL METHODOLOGY & CASE ARCHIVE</span>
           </div>
           <h2 className="portfolio-title font-serif">Process & Portfolio</h2>
           <p className="portfolio-subtitle font-serif">
-            “Synchronizing multi-company capabilities into a single standard of delivery.”
+            “Synchronizing multi-company capabilities into a single standard of accountable execution.”
           </p>
         </div>
 
@@ -81,28 +82,49 @@ export default function ProcessPortfolioSection() {
           ))}
         </div>
 
-        {/* Portfolio Grid */}
+        {/* Distinct Eye-Catching Portfolio Grid */}
         <div className="portfolio-grid">
           {filteredProjects.map((proj) => (
             <article key={proj.id} className="portfolio-card">
               <div className="portfolio-card-top font-telemetry">
-                <span className="portfolio-tag">{proj.tag}</span>
-                <span className="portfolio-metric text-gold">{proj.metric}</span>
+                <span className="portfolio-tag-badge">{proj.tag}</span>
+                <span className="portfolio-status-pill">
+                  <span className="status-live-dot" />
+                  <span>{proj.status || 'LIVE PRODUCTION'}</span>
+                </span>
               </div>
               
-              <h3 className="portfolio-project-title font-serif">{proj.title}</h3>
+              <h3 className="portfolio-project-title font-serif">{proj.title || proj.name}</h3>
               <p className="portfolio-project-desc">{proj.desc}</p>
+
+              {/* High-Impact Gold Metric Display */}
+              <div className="portfolio-impact-box">
+                <span className="impact-caption font-telemetry">VERIFIED BENCHMARK</span>
+                <span className="impact-number font-telemetry">{proj.metric}</span>
+              </div>
+
+              {/* Technical Feature Tags */}
+              {proj.features && proj.features.length > 0 && (
+                <div className="portfolio-features-row">
+                  {proj.features.map((feature, fIdx) => (
+                    <span key={fIdx} className="feature-pill font-telemetry">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              )}
               
               <div className="portfolio-card-bottom font-telemetry">
                 <span className="portfolio-client">CLIENT: {proj.client.toUpperCase()}</span>
                 <button
-                  className="portfolio-inquire-btn text-gold"
+                  className="portfolio-inquire-btn"
                   onClick={() => {
                     const el = document.getElementById('contact');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  INQUIRE
+                  <span>INQUIRE CASE</span>
+                  <ArrowUpRight size={13} className="text-gold" />
                 </button>
               </div>
             </article>
